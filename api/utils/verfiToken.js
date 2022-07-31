@@ -21,9 +21,9 @@ export const verifiToken = (req, res, next) => {
 // cheking is user
 export const userVerfi = (req, res, next) => {
 
-    verifiToken(req, res, () => {
-        const userId = (req.user) ? (req.user.id) ? req.user.id : null : null
-        const isAdmin = (req.user) ? (req.user.isAdmin) ? req.user.isAdmin : null : null
+    verifiToken(req, res, next, () => {
+        const userId = req.user.id
+        const isAdmin = req.user.isAdmin
 
         if (req.params.id === userId || isAdmin) {
             next()
@@ -35,9 +35,9 @@ export const userVerfi = (req, res, next) => {
 }
 
 export const adminVerify = (req, res, next) => {
-    verifiToken(req, res, () => {
+    verifiToken(req, res, next, () => {
         try {
-            const isAdmin = (req.user) ? (req.user.isAdmin) ? req.user.isAdmin : null : null
+            const isAdmin = req.user.isAdmin
             if (isAdmin) {
                 next()
             } else {

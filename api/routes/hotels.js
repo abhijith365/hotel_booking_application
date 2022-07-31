@@ -6,18 +6,19 @@ import {
     singleHotel,
     upDatedHotel
 } from '../controllers/Hotel.js'
+import { adminVerify } from '../utils/verfiToken.js'
 
 
 const route = express.Router()
 
 // CREATE HOTEL
-route.post('/', createHotel)
+route.post('/', adminVerify, createHotel)
 
 // UPDATE HOTEL
-route.put('/:id', upDatedHotel)
+route.put('/:id', adminVerify, upDatedHotel)
 
 // DELETE HOTEL
-route.delete('/:id', deleteHotel)
+route.delete('/:id', adminVerify, deleteHotel)
 
 // GET 
 route.get('/:id', singleHotel)

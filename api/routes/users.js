@@ -9,7 +9,7 @@ const route = express.Router()
 route.get('/:id', userVerfi, singleUser)
 
 //finding Alluser
-route.get('/', userVerfi, allUser)
+route.get('/', adminVerify, allUser)
 
 // updating user
 route.put('/update/:id', userVerfi, updateUser)
