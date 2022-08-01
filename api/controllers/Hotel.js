@@ -54,3 +54,19 @@ export const allHotel = async (req, res, next) => {
         next(e)
     }
 }
+
+export const countByCity = async (req, res, next) => {
+    try {
+
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const countBytype = async (req, res, next) => {
+    try {
+
+    } catch (error) {
+        next(error)
+    }
+}
