@@ -1,6 +1,7 @@
 import express from "express"
 import dotenv from 'dotenv'
 import morgan from "morgan"
+import cors from 'cors'
 import connect from './config/db.js'
 import authRouter from './routes/auth.js'
 import hotelRouter from './routes/hotels.js'
@@ -14,7 +15,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-
+app.use(cors())
 
 // logger 
 app.use(morgan('dev'))
